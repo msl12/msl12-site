@@ -6,3 +6,7 @@ tmp/
 vendor/bundle/
 
 *.sqlite3
+
+public/assets/
+
+config/secrets.yml
