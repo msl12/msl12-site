@@ -1,0 +1,49 @@
+<div class="post">
+  <% if current_page? root_path %>
+    <div class="post-bubbles">
+  	  <%= link_to '', blog_path(blog), title: blog.title, class: 'format-bubble' %>
+  	  <% if account_login? %>
+  	    <%= link_to '', edit_blog_path(blog), title: 'edit this post', class: 'sticky-bubble' %>
+  	    <%= link_to '', blog_path(blog), method: :delete, title: 'delete this post', class: 'delete-bubble', data:  {confirm: "Are you sure?"} %>
+  	  <% end %>
+    </div>
+  <% end %>
+
+  <div class="content-inner">
+  	<div class="post-header">
+  	  <h2 class="post-title">
+  	  	<%= link_to blog.title, blog_path(blog) %>
+  	  </h2>
+
+  	  <div class="post-meta">
+  	  	<%= link_to blog.created_at.to_date, blog_path(blog), title: "#{blog.created_at.strftime("%H:%M")}" %>
+  	  </div>
+  	  <% if account_login? && action_name == 'single' %>
+  	    <div class="post-editor">
+  	      <%= link_to 'Edit', edit_blog_path(blog), title: 'edit this post' %>
+  	      <%= link_to 'Delete', blog_path(blog), method: :delete, title: 'delete this post', data:  {confirm: "Are you sure?"} %>
+  	    </div>
+  	  <% end %>
+  	</div>
+
+  	<div class="post-content">
+  	  <%= raw GitHub::Markdown.render_gfm blog.content %>
+  	</div>
+
+  	<div class="clear"></div>
+  </div>
+
+  <div class="clear"></div>
+
+  <% if @next_post || @prev_post %>
+    <div class="post-nav">
+  	  <% if @next_post %>
+  	    <%= link_to "#{@next_post.title} »", blog_path(@next_post), title: 'Next post', class: 'post-nav-newer' %>
+  	  <% end %>
+  	  <% if @prev_post %>
+  	    <%= link_to "« #{@prev_post.title}", blog_path(@prev_post), title: 'Previous post', class: 'post-nav-older' %>
+  	  <% end %>
+  	  <div class="clear"></div>
+    </div>
+  <% end %>
+</div>

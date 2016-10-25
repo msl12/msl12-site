@@ -9,4 +9,3 @@ development:
 
 production:
   <<: *default
-  pool: 16

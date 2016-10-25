@@ -1,0 +1,7 @@
+development: &default
+  password: 'xxx'
+  site_title: "msl12's Blog"
+  site_description: 'My personal blog - stay hungry, stay foolish!'
+
+production:
+  <<: *default

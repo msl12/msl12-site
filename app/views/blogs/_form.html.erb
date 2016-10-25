@@ -1,0 +1,26 @@
+<table class="blog-content">
+  <tbody>
+    <tr>
+      <th valign="top">Title</th>
+      <td>
+        <%= form.text_field :title, :class => 'title' %>
+      </td>
+    </tr>
+    <tr>
+      <th valign="top">Content</th>
+      <td>
+        <%= form.text_area :content %>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td align="center">
+        <%= form.submit 'commit this post', :class => 'submit btn-primary' %>
+      </td>
+    </tr>
+  <tbody>
+</table>
+
+<script>
+  autosize($("textarea"));
+</script>

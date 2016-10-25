@@ -10,6 +10,12 @@ gem 'uglifier', '>= 1.3.0' # use Uglifier as compressor for JavaScript assets
 
 gem 'jquery-rails' # use jquery as the JavaScript library
 
-group :development do
-	gem 'listen', '~> 3.0' # mandatory
-end
+gem 'bootstrap-sass', '~> 3.3.6' # official sass port of bootstrap 2 and 3
+
+gem 'rails-assets-highlightjs', source: 'https://rails-assets.org' # shim repository for Highlight.js
+
+gem 'github-markdown' # self-contained markdown parser
+
+gem 'rails-assets-autosize', source: 'https://rails-assets.org' # a small, stand-alone script to automatically adjust textarea height to fit text
+
+# gem 'puma' # a ruby web server built for concurrency

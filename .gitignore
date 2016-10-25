@@ -10,3 +10,4 @@ vendor/bundle/
 public/assets/
 
 config/secrets.yml
+config/app_config.yml
