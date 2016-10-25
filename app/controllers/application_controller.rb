@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
   def account_login?
-  	session[:account] # may not well
+  	session[:account]
   end
 
 end
