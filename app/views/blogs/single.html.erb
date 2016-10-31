@@ -1,6 +1,5 @@
 <% @title = @blog.title %>
-<% @description = @blog.content.truncate(200).gsub(/(\r|\n)/, ' ') %>
-
+<% @description = @blog.content.sub(/```[^`]*```/, '').truncate(200).gsub(/\n|\*/, '') %>
 <div class="content section-inner">
   <div class="posts">
   	<%= render partial: 'blog', locals: {blog: @blog, next_post: @next_post, prev_post: @prev_post} %>
