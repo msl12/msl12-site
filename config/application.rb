@@ -16,6 +16,8 @@ Bundler.require(*Rails.groups)
 module Msl12Site
   class Application < Rails::Application
 
+  	config.time_zone = 'Beijing'
+
   	config.autoload_paths += [Rails.root.join('lib')]
   	config.eager_load_paths += [Rails.root.join('lib/msl12_site')]
 
