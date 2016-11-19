@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 	resources :blogs, only: %i(new create edit update destroy)
 	get '/blogs/:id' => 'blogs#single'
 
+	resources :photos, only: %i(create)
+
 	get 'login' => 'blogs#login'
 	post 'login_post' => 'blogs#login_post'
 	delete 'logout' => 'blogs#logout'

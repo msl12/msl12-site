@@ -13,6 +13,13 @@
       </td>
     </tr>
     <tr>
+      <th valign="top">Upload</th>
+      <td>
+        <%= file_field_tag :upload_file %>
+        <span id="spinner" style="display:none;"><%= image_tag "spinner.gif", size: "28x28" %></span>
+      </td>
+    </tr>
+    <tr>
       <th></th>
       <td align="center">
         <%= form.submit 'commit this post', :class => 'submit btn-primary' %>
@@ -23,4 +30,57 @@
 
 <script>
   autosize($("textarea"));
+
+  $(':file').change(function() {
+    var file = this.files[0];
+    if (typeof(file) == "undefined") {
+      return false;
+    }
+
+    var formData = new FormData();
+    formData.append("file", file);
+
+    $.ajax({
+      url: "/photos",
+      dataType: "JSON",
+      type: "POST",
+      processData: false,
+      contentType: false,
+      data: formData,
+
+      beforeSend: function() {
+        showUploading();
+      },
+
+      success: function(res) {
+        appendImageFromUpload(res.url);
+        restoreUploaderStatus();
+      },
+
+      error: function(res) {
+        alert("Upload failed");
+        restoreUploaderStatus();
+      }
+    });
+  });
+
+  function showUploading() {
+    $("#upload_file").hide();
+    $('#spinner').show();
+  }
+
+  function appendImageFromUpload(src) {
+    str = "![]("+src+")\n";
+    $target = $("#blog_content");
+    start = $target[0].selectionStart;
+    end = $target[0].selectionEnd;
+    $target.val($target.val().substring(0, start) + str + $target.val().substring(end));
+    $target[0].selectionStart = $target[0].selectionEnd = start + str.length;
+    $target.focus();
+  }
+
+  function restoreUploaderStatus() {
+    $('#spinner').hide();
+    $("#upload_file").show();
+  }
 </script>
