@@ -2,6 +2,8 @@
   <div class="posts">
   	<%= render partial: 'blog', :collection => @blogs %>
 
+	<%= will_paginate @blogs %>
+
 	<div class="clear"></div>
   </div>
 </div>

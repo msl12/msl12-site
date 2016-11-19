@@ -21,3 +21,5 @@ gem 'rails-assets-autosize', source: 'https://rails-assets.org' # a small, stand
 gem 'puma' # a ruby web server built for concurrency
 
 gem 'carrierwave' # classier solution for file uploads
+
+gem 'will_paginate', '~> 3.1.0' # pagination library
