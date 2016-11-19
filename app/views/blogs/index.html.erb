@@ -1,5 +1,12 @@
 <div class="content section-inner">
   <div class="posts">
+  	<% if @page %>
+  	  <div class="page-title">
+  	  	<h4>Page <%= params[:page] %> of <%= @total %></h4>
+  	  </div>
+  	  <div class="clear"></div>
+  	<% end %>
+
   	<%= render partial: 'blog', :collection => @blogs %>
 
 	<%= will_paginate @blogs %>

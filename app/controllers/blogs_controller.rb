@@ -9,6 +9,8 @@ class BlogsController < ApplicationController
 	def index
 		@blogs = Blog.order('id DESC')
 		@blogs = @blogs.paginate(page: params[:page], per_page: 2)
+		@page = params[:page] == '1' ? false : params[:page]
+		@total = 1 + Blog.count / 2
 	end
 
 	def new
