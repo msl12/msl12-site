@@ -1,7 +1,7 @@
 <div class="write">
   <div class="publish">
 	  <div class="con">
-      <%= form_for :blog, url: blogs_path, html: {:id => 'blog-form'} do |f| %>
+      <%= form_for :blog, url: blogs_path do |f| %>
         <%= render partial: 'form', :object => f %>
       <% end %>
     </div>
