@@ -70,7 +70,7 @@
   }
 
   function appendImageFromUpload(src) {
-    str = "![]("+src+")\n";
+    str = "[![](" + src + ")](" + src + ")\n";
     $target = $("#blog_content");
     start = $target[0].selectionStart;
     end = $target[0].selectionEnd;

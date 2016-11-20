@@ -103,6 +103,16 @@
       });
 
       hljs.initHighlightingOnLoad();
+
+      $(".post").each(function() {
+          var id = $(this).attr("id");
+
+          $(this).find(".post-content a").each(function() {
+            if ($(this).find("img").length != 0) {
+              $(this).attr("rel", "lightbox[" + id + "]");
+            }
+          });
+      });
     </script>
   </body>
 </html>

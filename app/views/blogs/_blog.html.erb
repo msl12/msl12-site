@@ -1,4 +1,4 @@
-<div class="post">
+<div class="post" id="post-<%= blog.id %>">
   <% if current_page? root_path %>
     <div class="post-bubbles">
   	  <%= link_to '', blog_path(blog), title: blog.title, class: 'format-bubble' %>

@@ -3,3 +3,4 @@
 //= require bootstrap-sprockets
 //= require highlightjs
 //= require autosize
+//= require lightbox.js
