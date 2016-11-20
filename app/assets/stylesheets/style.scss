@@ -1029,6 +1029,12 @@ code, kbd, pre {
 .wp-caption,
 .post-content img {
 	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
+	padding: 5px;
+	border: 1px solid #EEE;
 }
 
 .post-content .wp-caption { margin-bottom: 1.5em; }
