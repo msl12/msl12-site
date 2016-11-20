@@ -1,6 +1,6 @@
 ## msl12's website
 
-This is the source code of [my personal website](http://msl12.cn?_blank).
+This is the source code of [my personal website](http://msl12.cn).
 
 ## Requirements
 
