@@ -2,14 +2,19 @@
 
 environment 'production'
 daemonize true
-wd = File.expand_path('../../', __FILE__)
-tmp_path = File.join(wd, 'log')
-Dir.mkdir(tmp_path) unless File.exist?(tmp_path)
 
-pidfile          File.join(tmp_path, 'puma.pid')
-state_path       File.join(tmp_path, 'puma.state')
-stdout_redirect  File.join(tmp_path, 'puma.out.log'), File.join(tmp_path, 'puma.err.log'), true
+stdout_redirect '/dev/null', '/dev/null', true
 
-threads 0, 16
 bind 'tcp://0.0.0.0:8080'
-workers 0
+workers 1
+preload_app!
+
+on_worker_boot do
+	ActiveSupport.on_load(:active_record) do
+		ActiveRecord::Base.establish_connection
+  	end
+end
+
+before_fork do
+  ActiveRecord::Base.connection_pool.disconnect!
+end
