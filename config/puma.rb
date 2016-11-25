@@ -1,11 +1,10 @@
-#!/usr/bin/env puma
-
 environment 'production'
 daemonize true
 
 stdout_redirect '/dev/null', '/dev/null', true
 
-bind 'tcp://0.0.0.0:8080'
+#bind 'tcp://0.0.0.0:8080'
+bind 'unix:///tmp/msl12-site.sock'
 workers 1
 preload_app!
 
