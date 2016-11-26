@@ -8,7 +8,7 @@ class Blog < ApplicationRecord
 	end
 
 	def prev
-		Blog.where("id < #{self.id}").first
+		Blog.where("id < #{self.id}").last
 	end
 
 end
