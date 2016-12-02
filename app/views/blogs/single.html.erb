@@ -1,5 +1,5 @@
 <% @title = @blog.title %>
-<% @description = @blog.content.gsub(/```[^`]*```|\[!\[.*?\]\(.+?\)\]\(.+?\)/, ' ').gsub(/\[(.*?)\]\(.+?\)/, '\1').truncate(200).gsub(/\n|\*/, '') %>
+<% @description = @blog.content.gsub(/```[^`]*```|\[!\[.*?\]\(.+?\)\]\(.+?\)/, ' ').gsub(/\[(.*?)\]\(.+?\)/, '\1').truncate(200).gsub(/\n|\*|###|>/, '') %>
 <div class="content section-inner">
   <div class="posts">
   	<%= render partial: 'blog', locals: {blog: @blog, next_post: @next_post, prev_post: @prev_post} %>
