@@ -103,6 +103,9 @@
       });
 
       hljs.initHighlightingOnLoad();
+      lightbox.option({
+        'wrapAround': true
+      })
 
       $(".post").each(function() {
           var id = $(this).attr("id");
