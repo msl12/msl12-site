@@ -102,10 +102,10 @@
         return false;
       });
 
-      hljs.initHighlightingOnLoad();
       lightbox.option({
         'wrapAround': true
-      })
+      });
+      hljs.initHighlightingOnLoad();
 
       $(".post").each(function() {
           var id = $(this).attr("id");
