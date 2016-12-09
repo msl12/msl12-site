@@ -53,7 +53,8 @@
 
     <div class="footer">
       <div class="footer-inner section-inner">
-        <div class="widgets">
+
+        <div class="footer-a widgets">
           <div class="widget">
             <div class="widget-content">
               <h3 class="widget-title">Social media</h3>
@@ -61,6 +62,20 @@
                 <li>
                   <%= link_to 'Github', 'https://github.com/msl12/msl12-site', target: '_blank' %>
                 </li>
+              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <div class="clear"></div>
+        </div>
+
+        <div class="footer-c widgets">
+          <div class="widget">
+            <div class="widget-content">
+              <h3 class="widget-title">Recent Posts</h3>
+              <ul>
+                <%= recent_posts 5 %>
               </ul>
             </div>
             <div class="clear"></div>

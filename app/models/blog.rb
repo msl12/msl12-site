@@ -3,6 +3,8 @@ class Blog < ApplicationRecord
 	validates :title, presence: true
 	validates :content, :presence => true
 
+	scope :recent, -> { order(id: :desc) }
+
 	def next
 		Blog.where("id > #{self.id}").first
 	end
