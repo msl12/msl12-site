@@ -121,7 +121,8 @@
     else {
       tagList.splice(index, 1);
     }
-
     $("input#tags").val(tagList.join(",")).focus();
+
+    return false;
   });
 </script>
