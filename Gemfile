@@ -23,3 +23,5 @@ gem 'puma' # a ruby web server built for concurrency
 gem 'carrierwave' # classier solution for file uploads
 
 gem 'will_paginate', '~> 3.1.0' # pagination library
+
+gem 'acts-as-taggable-on', '~> 4.0' # a tagging plugin

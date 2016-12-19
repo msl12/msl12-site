@@ -23,6 +23,27 @@
         padding: 5px 0;
     }
 
+    .blog-tags {
+        width: 670px;
+    }
+
+    .blog-tags a {
+        color: #5491be;
+        font-size: 23px;
+        background-color: #ddeefe;
+        border: 1px solid #acc3ec;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-bottom: 3px;
+        border-radius: 5px;
+        box-shadow: 0 1px 1px #e4edf2;
+        line-height: 40px;
+        position: relative;
+        margin-right: 4px;
+    }
+
+    .blog-tags a:hover { opacity: 0.8; }
+
     input.title {
         font-size: 21px;
     }
@@ -45,6 +66,7 @@
         font-size: 18px;
         line-height: 1.6;
         outline: none;
+        resize: none;
     }
 
     input.submit {

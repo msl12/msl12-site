@@ -13,10 +13,23 @@
       </td>
     </tr>
     <tr>
+      <th valign="top">Tag</th>
+      <td>
+        <%= form.text_field :blog_tags, :id => 'tags' %>
+        <div class="blog-tags">
+          <% Blog.all_tags.each do |tag| %>
+            <%= link_to tag.name, '#' %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+    <tr>
       <th valign="top">Upload</th>
       <td>
         <%= file_field_tag :upload_file %>
-        <span id="spinner" style="display:none;"><%= image_tag "spinner.gif", size: "28x28" %></span>
+        <span id="spinner" style="display:none;">
+          <%= image_tag "spinner.gif", size: "28x28" %>
+        </span>
       </td>
     </tr>
     <tr>
@@ -83,4 +96,32 @@
     $('#spinner').hide();
     $("#upload_file").show();
   }
+
+  function filterTags(tags) {
+    var newArray = new Array();
+    if (tags.length > 0) {
+      var tag_list = tags.split(",");
+
+      for (var i = 0; i < tag_list.length; ++i) {
+        newArray.push(tag_list[i]);
+      }
+    }
+
+    return newArray;
+  }
+
+  $('div.blog-tags a').click(function() {
+    var tagName = $.trim($(this).html());
+    var tagList = filterTags($("input#tags").val());
+    var index = $.inArray(tagName, tagList);
+    
+    if (index === -1) {
+      tagList.push(tagName);
+    }
+    else {
+      tagList.splice(index, 1);
+    }
+
+    $("input#tags").val(tagList.join(",")).focus();
+  });
 </script>
