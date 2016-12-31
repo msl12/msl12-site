@@ -15,6 +15,22 @@
     <div class="clear"></div>
   </div>
 
+  <div class="footer-b widgets">
+    <div class="widget widget_tag_cloud">
+      <div class="widget-content">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tagcloud">
+          <% Blog.all_tags.each do |tag| %>
+            <%= link_to tag.name, tag_path(tag.name) %>
+          <% end %>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+
   <div class="footer-c widgets">
     <div class="widget">
       <div class="widget-content">

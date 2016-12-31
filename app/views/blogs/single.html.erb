@@ -1,8 +1,19 @@
 <% @title = @blog.title %>
 <% @description = @blog.content.gsub(/```[^`]*```|\[!\[.*?\]\(.+?\)\]\(.+?\)/, ' ').gsub(/\[(.*?)\]\(.+?\)/, '\1').truncate(200).gsub(/\n|\*|###|>/, '') %>
+
+<% content_for :post_cat_tags do %>
+  <div class="post-cat-tags">
+  	<p class="post-tags">Tags:
+  	  <% @blog.tags.each do |tag| %>
+  	    <%= link_to tag.name, tag_path(tag.name) %> 
+  	  <% end %>
+    </p>
+  </div>
+<% end %>
+
 <div class="content section-inner">
   <div class="posts">
-  	<%= render partial: 'blog', locals: {blog: @blog, next_post: @next_post, prev_post: @prev_post} %>
+  	<%= render partial: 'blog', locals: { blog: @blog, next_post: @next_post, prev_post: @prev_post } %>
 
 	<div class="clear"></div>
   </div>

@@ -1,5 +1,5 @@
 <div class="post" id="post-<%= blog.id %>">
-  <% if current_page? root_path %>
+  <% if action_name != 'single' %>
     <div class="post-bubbles">
   	  <%= link_to '', blog_path(blog), title: blog.title, class: 'format-bubble' %>
   	  <% if account_login? %>
@@ -31,6 +31,8 @@
   	</div>
 
   	<div class="clear"></div>
+
+    <%= yield :post_cat_tags if content_for? :post_cat_tags %>
   </div>
 
   <div class="clear"></div>

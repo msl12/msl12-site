@@ -1,0 +1,18 @@
+<% @title = params[:name].capitalize %>
+
+<div class="content section-inner">
+  <div class="posts">
+    <div class="page-title">
+      <h4>Tag: <%= params[:name] %>
+        <span>(page <%= params[:page] ? params[:page] : 1 %> of <%= @total %>)</span>
+      </h4>
+    </div>
+    <div class="clear"></div>
+
+  	<%= render partial: 'blogs/blog', :collection => @blogs %>
+
+    <%= will_paginate @blogs %>
+
+    <div class="clear"></div>
+  </div>
+</div>

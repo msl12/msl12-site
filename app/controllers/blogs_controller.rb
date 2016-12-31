@@ -2,10 +2,6 @@ class BlogsController < ApplicationController
 	before_action :already_logged?, only: [:login, :login_post]
 	before_action :authenticate!, only: [:new, :create, :edit, :update, :destroy, :logout]
 
-	rescue_from ActiveRecord::RecordNotFound do
-		render template: "/errors/404", status: 404
-  	end
-
 	def index
 		@blogs = Blog.order('id DESC')
 		@blogs = @blogs.paginate(page: params[:page], per_page: 2)
@@ -75,7 +71,7 @@ class BlogsController < ApplicationController
 	end
 
 	def error404
-		render template: "/errors/404", status: 404
+		render_404
 	end
 
 	private

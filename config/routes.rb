@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 	post 'login_post' => 'blogs#login_post'
 	delete 'logout' => 'blogs#logout'
 
+	get 'tags/:name' => 'tags#show', :as => 'tag'
+
 	match '*path', via: :all, to: 'blogs#error404'
 
 end
