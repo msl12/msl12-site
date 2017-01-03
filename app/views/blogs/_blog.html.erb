@@ -48,4 +48,6 @@
   	  <div class="clear"></div>
     </div>
   <% end %>
+
+  <%= yield :comment_thread if content_for? :comment_thread %>
 </div>
