@@ -25,3 +25,5 @@ gem 'carrierwave' # classier solution for file uploads
 gem 'will_paginate', '~> 3.1.0' # pagination library
 
 gem 'acts-as-taggable-on', '~> 4.0' # a tagging plugin
+
+gem 'font-awesome-rails' # provides the font-awesome web fonts and stylesheets

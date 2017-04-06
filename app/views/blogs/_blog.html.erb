@@ -32,6 +32,14 @@
 
   	<div class="post-content">
   	  <%= raw GitHub::Markdown.render_gfm blog.content %>
+
+      <% if @view_count %>
+          <div class="post-views entry-meta">
+            <i class="post-views-icon fa fa-bar-chart"></i>
+            <span>Post Views: </span>
+            <span><%= @view_count %></span>
+          </div>
+      <% end %>
   	</div>
 
   	<div class="clear"></div>

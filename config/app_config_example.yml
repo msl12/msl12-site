@@ -3,6 +3,7 @@ development: &default
   site_title: "msl12's Blog"
   site_description: 'My personal blog - stay hungry, stay foolish!'
   site_url: 'http://localhost:3000'
+  cache_prefix: 'MSL12'
 
 production:
   <<: *default

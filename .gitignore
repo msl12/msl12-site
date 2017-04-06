@@ -1,4 +1,5 @@
-.bundle
+.bundle/
+.idea/
 log/
 tmp/**/
 tmp/

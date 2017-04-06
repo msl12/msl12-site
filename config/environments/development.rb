@@ -14,7 +14,6 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   config.action_controller.perform_caching = false
-  config.cache_store = :null_store
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load

@@ -2365,5 +2365,13 @@ p.form-allowed-tags {
 }
 
 .post-content p {
-    text-align: justify;
+  text-align: justify;
+}
+
+.post-views.entry-meta > i.post-views-icon {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: inherit;
+  vertical-align: middle;
 }

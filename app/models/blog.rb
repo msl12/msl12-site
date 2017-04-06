@@ -23,4 +23,16 @@ class Blog < ApplicationRecord
 		Blog.where("id < #{self.id}").last
 	end
 
+	def increment_view_count
+		cache_key = "#{APP_CONFIG['cache_prefix']}/#{id}/view_count"
+		blog_view_count = Rails.cache.read cache_key
+		if blog_view_count
+			blog_view_count += 1
+			Rails.cache.write cache_key, blog_view_count
+			update_attribute(:view_count, blog_view_count) if blog_view_count % 10 == 0
+		else
+			Rails.cache.write cache_key, 1
+		end
+	end
+
 end

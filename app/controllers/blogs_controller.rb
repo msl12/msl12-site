@@ -17,6 +17,7 @@ class BlogsController < ApplicationController
 		@blog = Blog.find params[:id]
 		@next_post = @blog.next
 		@prev_post = @blog.prev
+		@blog.increment_view_count
 	end
 
 	def create
