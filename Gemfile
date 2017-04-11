@@ -18,7 +18,7 @@ gem 'github-markdown' # self-contained markdown parser
 
 gem 'rails-assets-autosize', source: 'https://rails-assets.org' # a small, stand-alone script to automatically adjust textarea height to fit text
 
-# gem 'puma' # a ruby web server built for concurrency
+gem 'puma' # a ruby web server built for concurrency
 
 gem 'carrierwave' # classier solution for file uploads
 
