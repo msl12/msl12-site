@@ -1,4 +1,6 @@
 class Blog < ApplicationRecord
+	include Elasticsearch::Model
+	include Elasticsearch::Model::Callbacks
 
 	acts_as_taggable
 
@@ -7,13 +9,25 @@ class Blog < ApplicationRecord
 
 	scope :recent, -> { order(id: :desc) }
 
+	mapping do
+		indexes :title
+		indexes :content
+  end
+
+	def as_indexed_json(_options={})
+		{
+				title: title,
+				content: content
+		}
+	end
+
 	def blog_tags
 		self.tag_list.join ','
-  	end
-  
-  	def blog_tags=(tags)
-  		self.tag_list = tags.split(',').uniq.join(',')
-  	end
+	end
+
+	def blog_tags=(tags)
+		self.tag_list = tags.split(',').uniq.join(',')
+	end
 
 	def next
 		Blog.where("id > #{self.id}").first
