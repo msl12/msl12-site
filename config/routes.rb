@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
 	get 'tags/:name' => 'tags#show', :as => 'tag'
 
+	get '/search', to: 'search#index'
+
 	match '*path', via: :all, to: 'blogs#error404'
 
 end

@@ -26,6 +26,8 @@
             </li>
           <% end %>
   	  	</ul>
+
+        <%= render 'shared/search_form' %>
   	  	<div class="clear"></div>
   	  </div>
   	</div>
@@ -97,6 +99,18 @@
               $(this).attr("rel", "lightbox[" + id + "]");
             }
           });
+      });
+
+      var search_field = $(".search-form input#s");
+      search_field.focus(function() {
+          if ($(this)[0].value === "Type and press enter") {
+              $(this)[0].value = "";
+          }
+      });
+      search_field.blur(function() {
+          if ($(this)[0].value === "") {
+              $(this)[0].value = "Type and press enter";
+          }
       });
     </script>
   </body>
