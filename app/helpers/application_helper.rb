@@ -13,4 +13,8 @@ module ApplicationHelper
 		recent_post_links.join("\n").html_safe
 	end
 
+  def markdown(text)
+		raw GitHub::Markdown.render_gfm text
+	end
+
 end

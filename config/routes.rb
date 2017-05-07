@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
 	root "blogs#index"
 
-	get '/about-me' => 'blogs#page'
+	get 'about-me' => 'blogs#page'
 
 	resources :blogs, only: %i(new create edit update destroy)
-	get '/blogs/:id' => 'blogs#single'
+	get 'blogs/:id' => 'blogs#single'
 
 	resources :photos, only: %i(create)
 
@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
 	get 'tags/:name' => 'tags#show', :as => 'tag'
 
-	get '/search', to: 'search#index'
+	get 'search', to: 'search#index'
+
+  get 'feed', to: 'blogs#feed', defaults: { format: 'xml' }
 
 	match '*path', via: :all, to: 'blogs#error404'
 

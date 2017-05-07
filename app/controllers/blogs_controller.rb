@@ -75,6 +75,11 @@ class BlogsController < ApplicationController
 		render_404
 	end
 
+  def feed
+		@blogs = Blog.order('id DESC').limit(15)
+		render layout: false
+	end
+
 	private
 	def account_params
 		params.permit(:password)
