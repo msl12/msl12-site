@@ -1,6 +1,6 @@
 <% @title = @blog.title %>
 <% @view_count = Rails.cache.read "#{APP_CONFIG['cache_prefix']}/#{@blog.id}/view_count" %>
-<% @description = @blog.content.gsub(/```[^`]*```|\[!\[.*?\]\(.+?\)\]\(.+?\)/, ' ').gsub(/\[(.*?)\]\(.+?\)/, '\1').truncate(200).gsub(/\n|\*|###|>/, '') %>
+<% @description = @blog.content.gsub(/```[^`]*```|\[!\[.*?\]\(.+?\)\]\(.+?\)/, ' ').gsub(/\[(.*?)\]\(.+?\)/, '\1').truncate(200).gsub(/\n|\*|#|>/, '') %>
 
 <% content_for :post_cat_tags do %>
   <div class="post-cat-tags">
